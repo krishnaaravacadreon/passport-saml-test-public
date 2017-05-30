@@ -1,3 +1,9 @@
+const fs = require('fs');
+const path = require('path');
+var certif = path.join( __dirname , 'ssocircle.cert' );
+
+console.log('certifPath : ' + certif );
+
 module.exports = {
   development: {
     app: {
@@ -11,7 +17,7 @@ module.exports = {
         entryPoint: process.env.SAML_ENTRY_POINT || 'https://idp.ssocircle.com/sso/idpssoinit?metaAlias=%2Fpublicidp&spEntityID=http://serveur.network-drian.ovh:8083/metadata',//'https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php',
         //callbackUrl: 'http://serveur.network-drian.ovh:8083/login/callback/',
         issuer: 'http://serveur.network-drian.ovh:8083', //'passport-saml',
-        cert: process.env.SAML_CERT || fs.readFileSync('ssocircle.cert','utf8')
+        cert: process.env.SAML_CERT || fs.readFileSync( certif , { encoding: 'utf8' })
       }
     }
   }
