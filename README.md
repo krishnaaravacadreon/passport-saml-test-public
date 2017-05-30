@@ -38,4 +38,6 @@ Licensed under the MIT license
 Note
 ----
 
+openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout server.key -out server.crt
+
 Based on [PassportJS-Authentication](https://github.com/DanialK/PassportJS-Authentication) by [Danial Khosravi](http://danialk.github.io/)

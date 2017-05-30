@@ -19,8 +19,10 @@ module.exports = function (passport, config) {
     },
     function (profile, done) {
         console.log('SAML RETURN' , profile);
+
       return done(null,
         {
+          all : profile,
           id: profile.uid,
           email: profile.email,
           displayName: profile.cn,

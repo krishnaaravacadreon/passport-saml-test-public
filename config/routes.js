@@ -30,7 +30,6 @@ module.exports = function (app, config, passport) {
       })
   );
 
-  console.log(config.passport.saml.path);
   app.post(config.passport.saml.path,
     passport.authenticate(config.passport.strategy,
       {
