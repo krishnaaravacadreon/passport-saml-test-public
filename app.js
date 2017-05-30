@@ -43,8 +43,8 @@ require('./config/routes')(app, config, passport);
 });*/
 
 var options = {
-    key: fs.readFileSync('/ssl/server.key'),
-    cert: fs.readFileSync('/ssl/server.crt'),
+    key: fs.readFileSync( __dirname + '/ssl/server.key'),
+    cert: fs.readFileSync( __dirname + '/ssl/server.crt'),
     requestCert: false,
     rejectUnauthorized: false
 };
