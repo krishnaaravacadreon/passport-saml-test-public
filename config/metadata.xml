@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<EntityDescriptor entityID="https://serveur.network-drian.ovh:8083/metadata"
+                  xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+    <SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="true"
+                     protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"  Location="https://serveur.network-drian.ovh:8083/logout"  Response_Location="https://serveur.network-drian.ovh:8083/saml/logout/callback"/>
+
+        <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://serveur.network-drian.ovh:8083/login/callback" index="0"/>
+        <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://serveur.network-drian.ovh:8083/login/callback" index="1"/>
+        <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://serveur.network-drian.ovh:8083/login/callback" index="2"/>
+        <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://serveur.network-drian.ovh:8083/login/callback" index="3"/>
+        <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:profiles:holder-of-key:SSO:browser" Location="https://serveur.network-drian.ovh:8083/login/callback" index="4"/>
+    </SPSSODescriptor>
+</EntityDescriptor>

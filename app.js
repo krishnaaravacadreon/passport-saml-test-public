@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const errorhandler = require('errorhandler');
+const https = require('https');
+const fs = require('fs');
 
 var env = process.env.NODE_ENV || 'development';
 const config = require('./config/config')[env];
@@ -36,6 +38,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 require('./config/routes')(app, config, passport);
 
-app.listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
+/*app.listen(app.get('port'), function () {
+
+});*/
+
+var options = {
+    key: fs.readFileSync('/ssl/server.key'),
+    cert: fs.readFileSync('/ssl/server.crt'),
+    requestCert: false,
+    rejectUnauthorized: false
+};
+
+var server = https.createServer(options, app).listen( app.get('port') , function(){
+    console.log('Express server listening on port ' + app.get('port'));
 });

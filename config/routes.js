@@ -15,6 +15,13 @@ module.exports = function (app, config, passport) {
     }
   });
 
+    app.get('/metadata', function (req, res) {
+            //Send custom metadata
+            res.type('application/xml');
+            res.sendfile(__dirname + "/metadata.xml");
+        }
+    );
+
   app.get('/login',
     passport.authenticate(config.passport.strategy,
       {
