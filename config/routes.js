@@ -49,7 +49,7 @@ module.exports = function (app, config, passport) {
     if (req.isAuthenticated()) {
       res.render('profile',
         {
-          user: req.user
+          user: [req.user]
         });
     } else {
       res.redirect('/login');
