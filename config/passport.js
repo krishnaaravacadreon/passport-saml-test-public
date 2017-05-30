@@ -18,6 +18,7 @@ module.exports = function (passport, config) {
       cert: config.passport.saml.cert
     },
     function (profile, done) {
+        console.log('SAML RETURN' , profile);
       return done(null,
         {
           id: profile.uid,
